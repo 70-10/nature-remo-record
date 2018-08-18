@@ -1,0 +1,15 @@
+{
+  "name": "nature-remo-record",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "sls deploy -v"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless": "^1.30.1"
+  }
+}
