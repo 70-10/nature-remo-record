@@ -53,15 +53,16 @@ func Handler() (Response, error) {
 			return Response{StatusCode: 500}, err
 		}
 
-		_, err = dRef.Doc("temperature").Collection(now.Format("2006-01-02")).Doc(now.Format("15:04:05")).Set(ctx, d.NewestEvents.Temperature)
+		_, err = firestore.Collection("temperature").Doc(now.Format("2006-01-02 15:04:05")).Set(ctx, d.NewestEvents.Temperature)
 		if err != nil {
 			return Response{StatusCode: 500}, err
 		}
-		_, err = dRef.Doc("humidity").Collection(now.Format("2006-01-02")).Doc(now.Format("15:04:05")).Set(ctx, d.NewestEvents.Humidity)
+
+		_, err = firestore.Collection("humidity").Doc(now.Format("2006-01-02 15:04:05")).Set(ctx, d.NewestEvents.Humidity)
 		if err != nil {
 			return Response{StatusCode: 500}, err
 		}
-		_, err = dRef.Doc("illumination").Collection(now.Format("2006-01-02")).Doc(now.Format("15:04:05")).Set(ctx, d.NewestEvents.Illumination)
+		_, err = firestore.Collection("illumination").Doc(now.Format("2006-01-02 15:04:05")).Set(ctx, d.NewestEvents.Illumination)
 		if err != nil {
 			return Response{StatusCode: 500}, err
 		}
